@@ -1,0 +1,27 @@
+.sprite {
+    width: 382px;
+    height: 434px;
+    background: url(../images/walk.png);
+    background-size: 4584px 434px;
+    animation: 1s walk steps(12) infinite;
+}
+
+@keyframes walk {
+    to {
+        background-position: -4584px;
+    }
+}
+
+.scene {
+    width: 100%;
+    height: 600px;
+    background: url(../images/scene.jpg);
+    background-size: 3071px 600px;
+    animation: linear 12s scroll infinite;
+}
+
+@keyframes scroll {
+    to {
+        background-position: -3071px;
+    }
+}
