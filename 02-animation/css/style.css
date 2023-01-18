@@ -1,0 +1,13 @@
+.sprite {
+    width: 382px;
+    height: 434px;
+    background: url(../images/walk.png);
+    background-size: 4584px 434px;
+    animation: 1s walk steps(12) infinite;
+}
+
+@keyframes walk {
+    to {
+        background-position: -4584px;
+    }
+}
