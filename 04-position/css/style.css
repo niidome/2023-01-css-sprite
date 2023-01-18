@@ -1,0 +1,61 @@
+:root {
+    /* キャラクタ画像のサイズ */
+    --sprite-org-width: 9168px;
+    --sprite-org-height: 868px;
+    /* どれぐらい拡縮するか*/
+    --sprite-scale: 0.3;
+    /* アニメーションのコマ数 */
+    --sprite-step: 12;
+    /* 背景の相対位置 下からカウント */
+    --sprite-bottom-position: 50px;
+    /* アニメーションの再生時間 */
+    --walk-time: 0.8s;
+
+    /* 背景画像のサイズ */
+    --scene-org-width: 3071px;
+    --scene-org-height: 600px;
+    /* どのくらい拡縮するか */
+    --scene-scale: 0.8;
+    /* 背景のアニメーション再生時間 */
+    --scene-time: 10s;
+
+    /* 拡縮したキャラクタサイズ */
+    --sprite-width: calc(var(--sprite-org-width) * var(--sprite-scale));
+    --sprite-height: calc(var(--sprite-org-height) * var(--sprite-scale));
+    /* ひとコマ分の幅 */
+    --frame-width: calc(var(--sprite-width) / var(--sprite-step));
+    /* 拡縮した背景サイズ */
+    --scene-width: calc(var(--scene-org-width) * var(--scene-scale));
+    --scene-height: calc(var(--scene-org-height) * var(--scene-scale));
+}
+
+.sprite {
+    width: var(--frame-width);
+    height: var(--sprite-height);
+    background: url(../images/walk.png);
+    background-size: var(--sprite-width) var(--sprite-height);
+    animation: var(--walk-time) walk steps(var(--sprite-step)) infinite;
+    position: absolute;
+    bottom: var(--sprite-bottom-position);
+}
+
+@keyframes walk {
+    to {
+        background-position: calc(var(--sprite-width) * -1.0);
+    }
+}
+
+.scene {
+    width: 100%;
+    height: var(--scene-height);
+    background: url(../images/scene.jpg);
+    background-size: var(--scene-width) var(--scene-height);
+    animation: linear var(--scene-time) scroll infinite;
+    position: relative;
+}
+
+@keyframes scroll {
+    to {
+        background-position: calc(var(--scene-width) * -1.0);
+    }
+}
